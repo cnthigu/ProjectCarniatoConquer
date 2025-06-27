@@ -1,53 +1,13 @@
-# Memory Reader GUI - Professional Edition
+# Carniato Project v 1.0
 
-Uma interface gráfica profissional para leitura e manipulação de memória de processos, desenvolvida especificamente para o jogo Conquer.
+## Características
 
-## 🚀 Características
-
-- **Interface Moderna**: Design profissional com tema escuro
 - **Conexão Inteligente**: Conecta automaticamente ao processo especificado
 - **Monitoramento em Tempo Real**: Lista entidades com atualização contínua
 - **Controle de Wall Jump**: Ativação/desativação global
 - **Configuração de Offsets**: Interface intuitiva para personalização
 - **Wiki Integrada**: Documentação completa e ajuda
 - **Import/Export**: Backup e compartilhamento de configurações
-
-## 📋 Requisitos
-
-- Windows 10/11 (64-bit)
-- .NET 6.0 ou superior
-- Privilégios de administrador
-- Processo alvo (Conquer.exe) em execução
-
-## 🛠️ Compilação
-
-### Pré-requisitos
-- Visual Studio 2022 ou superior
-- .NET 6.0 SDK
-- Windows Forms Workload
-
-### Passos para Compilar
-
-1. **Clone ou baixe o projeto**
-   ```
-   git clone <repository-url>
-   cd ProjectCarniato
-   ```
-
-2. **Restaurar dependências**
-   ```
-   dotnet restore
-   ```
-
-3. **Compilar o projeto**
-   ```
-   dotnet build --configuration Release
-   ```
-
-4. **Executar**
-   ```
-   dotnet run
-   ```
 
 ### Compilação via Visual Studio
 
@@ -56,12 +16,12 @@ Uma interface gráfica profissional para leitura e manipulação de memória de 
 3. Build > Build Solution (Ctrl+Shift+B)
 4. Execute com F5 ou Ctrl+F5
 
-## 📖 Como Usar
+## Como Usar
 
 ### Conexão Inicial
 
 1. **Inicie o jogo** (Conquer.exe)
-2. **Execute o Memory Reader GUI** como administrador
+2. **Execute o Carniato Project v 1.0** como administrador
 3. **Digite o nome do processo** ou use "Selecionar .exe"
 4. **Clique em "Conectar"**
 5. **Verifique o status** da conexão
@@ -85,7 +45,7 @@ Uma interface gráfica profissional para leitura e manipulação de memória de 
 3. Use formato hexadecimal (0x...) ou decimal
 4. Salve as alterações
 
-## 🔧 Configuração de Offsets
+## Configuração de Offsets
 
 ### Offsets Padrão (Conquer)
 
@@ -102,7 +62,7 @@ Uma interface gráfica profissional para leitura e manipulação de memória de 
 - **Hexadecimal**: `0x00194A0C` ou `194A0C`
 - **Decimal**: `1657356`
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 ProjectCarniato/
@@ -115,41 +75,7 @@ ProjectCarniato/
 └── README.md               # Este arquivo
 ```
 
-## 🛡️ Segurança
-
-- **Execute como administrador** para acesso à memória
-- **Configure exceções no antivírus** se necessário
-- **Use apenas em processos próprios**
-- **Faça backup das configurações** antes de modificar
-
-## 🐛 Solução de Problemas
-
-### Não Consegue Conectar
-- Verifique se o processo está rodando
-- Execute como administrador
-- Adicione exceção no antivírus
-- Confirme o nome exato do processo
-
-### Entidades Não Aparecem
-- Verifique os offsets
-- Aumente o número máximo de entidades
-- Reset para valores padrão
-
-### Wall Jump Não Funciona
-- Confirme o offset correto
-- Teste diferentes valores
-- Mantenha o software ativo
-
-## 📞 Suporte
-
-Para suporte técnico, inclua sempre:
-- Versão do Memory Reader GUI
-- Versão do Windows
-- Versão do jogo
-- Descrição detalhada do problema
-- Screenshots ou logs de erro
-
-## 🤝 Contribuições
+## Contribuições
 
 Contribuições são bem-vindas! Você pode:
 - Reportar bugs e sugestões
@@ -157,11 +83,7 @@ Contribuições são bem-vindas! Você pode:
 - Ajudar outros usuários
 - Contribuir com código
 
-## 📄 Licença
-
-Este projeto é fornecido "como está" para fins educacionais e de pesquisa.
-
-## ⚠️ Aviso Legal
+## Aviso Legal
 
 - Use apenas em processos que você possui
 - Respeite os termos de serviço dos jogos
@@ -170,5 +92,4 @@ Este projeto é fornecido "como está" para fins educacionais e de pesquisa.
 
 ---
 
-**Memory Reader GUI v1.0** - Desenvolvido com ❤️ para a comunidade
-
+**Carniato Project v 1.0** - Considere Deixar uma Estrela!

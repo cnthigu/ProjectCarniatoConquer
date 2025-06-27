@@ -1,6 +1,8 @@
 # Carniato Project v 1.0
 
-## Características
+## Video e Caracteristicas.
+
+[![Assista ao vídeo no YouTube](https://img.youtube.com/vi/YId_0ris2UY/hqdefault.jpg)](https://youtu.be/YId_0ris2UY)
 
 - **Conexão Inteligente**: Conecta automaticamente ao processo especificado
 - **Monitoramento em Tempo Real**: Lista entidades com atualização contínua
@@ -91,5 +93,6 @@ Contribuições são bem-vindas! Você pode:
 - Mantenha backups de configurações importantes
 
 ---
+
 
 **Carniato Project v 1.0** - Considere Deixar uma Estrela!

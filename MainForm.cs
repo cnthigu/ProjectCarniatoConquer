@@ -16,7 +16,7 @@ namespace ProjectCarniato
         private bool wallJumpEnabled = false;
 
         private GroupBox processGroupBox;
-        private TextBox processNameTextBox;
+        private ComboBox processComboBox;
         private Button connectButton;
         private Button selectExecutableButton;
         private Label connectionStatusLabel;
@@ -36,7 +36,7 @@ namespace ProjectCarniato
         private Button wikiButton;
         private Button contactButton;
         private Button youtubeButton;
-        private Button githubButton; 
+        private Button githubButton;
 
         public MainForm()
         {
@@ -47,22 +47,24 @@ namespace ProjectCarniato
 
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-
-            this.Text = "Project Carniato";
-            this.Size = new Size(800, 650);
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.BackColor = Color.FromArgb(45, 45, 48);
-            this.ForeColor = Color.White;
-
+            SuspendLayout();
+            // 
+            // MainForm
+            // 
+            BackColor = Color.FromArgb(45, 45, 48);
+            ClientSize = new Size(784, 611);
+            ForeColor = Color.White;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Project Carniato";
+            Load += MainForm_Load;
             CreateProcessControls();
             CreateEntitiesControls();
             CreateWallJumpControls();
             CreateControlsGroup();
-
-            this.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         private void CreateProcessControls()
@@ -76,15 +78,17 @@ namespace ProjectCarniato
                 Font = new Font("Segoe UI", 10, FontStyle.Bold)
             };
 
-            processNameTextBox = new TextBox
+            processComboBox = new ComboBox
             {
                 Location = new Point(15, 30),
                 Size = new Size(200, 25),
-                Text = "Conquer",
+                DropDownStyle = ComboBoxStyle.DropDownList,
                 BackColor = Color.FromArgb(60, 60, 60),
                 ForeColor = Color.White,
                 Font = new Font("Segoe UI", 9)
+
             };
+            processComboBox.DropDown += ProcessComboBox_DropDown;
 
             connectButton = new Button
             {
@@ -99,19 +103,6 @@ namespace ProjectCarniato
             connectButton.FlatAppearance.BorderSize = 0;
             connectButton.Click += ConnectButton_Click;
 
-            selectExecutableButton = new Button
-            {
-                Text = "Selecionar .exe",
-                Location = new Point(15, 65),
-                Size = new Size(120, 30),
-                BackColor = Color.FromArgb(70, 70, 70),
-                ForeColor = Color.White,
-                FlatStyle = FlatStyle.Flat,
-                Font = new Font("Segoe UI", 9)
-            };
-            selectExecutableButton.FlatAppearance.BorderSize = 0;
-            selectExecutableButton.Click += SelectExecutableButton_Click;
-
             connectionStatusLabel = new Label
             {
                 Text = "Desconectado",
@@ -122,7 +113,7 @@ namespace ProjectCarniato
             };
 
             processGroupBox.Controls.AddRange(new Control[] {
-                processNameTextBox, connectButton, selectExecutableButton, connectionStatusLabel
+                processComboBox, connectButton, selectExecutableButton, connectionStatusLabel
             });
 
             this.Controls.Add(processGroupBox);
@@ -308,7 +299,7 @@ namespace ProjectCarniato
                 Text = "GitHub",
                 Location = new Point(125, 75),
                 Size = new Size(100, 35),
-                BackColor = Color.FromArgb(50, 50, 50), 
+                BackColor = Color.FromArgb(50, 50, 50),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
                 Font = new Font("Segoe UI", 9, FontStyle.Bold)
@@ -335,14 +326,14 @@ namespace ProjectCarniato
         {
             updateTimer = new System.Windows.Forms.Timer
             {
-                Interval = 100 
+                Interval = 100
             };
             updateTimer.Tick += UpdateTimer_Tick;
         }
 
         private void ConnectButton_Click(object sender, EventArgs e)
         {
-            string processName = processNameTextBox.Text.Trim();
+            string processName = processComboBox.Text.Trim();
             if (string.IsNullOrEmpty(processName))
             {
                 MessageBox.Show("Por favor, insira o nome do processo.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -373,7 +364,7 @@ namespace ProjectCarniato
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     string fileName = Path.GetFileNameWithoutExtension(openFileDialog.FileName);
-                    processNameTextBox.Text = fileName;
+                    processComboBox.Text = fileName;
                 }
             }
         }
@@ -539,6 +530,33 @@ namespace ProjectCarniato
             updateTimer?.Stop();
             memoryManager?.Disconnect();
             base.OnFormClosing(e);
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ProcessComboBox_DropDown(object sender, EventArgs e)
+        {
+            processComboBox.Items.Clear();
+            Process[] runningProcesses = Process.GetProcesses();
+
+
+            foreach (Process process in runningProcesses)
+            {
+                try
+                {
+                    if (!string.IsNullOrEmpty(process.MainModule?.FileName) && process.MainModule.FileName.EndsWith(".exe", StringComparison.OrdinalIgnoreCase))
+                    {
+                        processComboBox.Items.Add(process.ProcessName);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Erro ao acessar o processo {process.ProcessName}: {ex.Message}");
+                }
+            }
         }
     }
 }

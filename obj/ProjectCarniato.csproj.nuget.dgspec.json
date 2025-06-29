@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Higor\\Desktop\\ProjectCarniato\\ProjectCarniato.csproj": {}
+    "C:\\Projetos\\ProjectCarniatoConquer\\ProjectCarniato.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Higor\\Desktop\\ProjectCarniato\\ProjectCarniato.csproj": {
+    "C:\\Projetos\\ProjectCarniatoConquer\\ProjectCarniato.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Higor\\Desktop\\ProjectCarniato\\ProjectCarniato.csproj",
+        "projectUniqueName": "C:\\Projetos\\ProjectCarniatoConquer\\ProjectCarniato.csproj",
         "projectName": "ProjectCarniato",
-        "projectPath": "C:\\Users\\Higor\\Desktop\\ProjectCarniato\\ProjectCarniato.csproj",
+        "projectPath": "C:\\Projetos\\ProjectCarniatoConquer\\ProjectCarniato.csproj",
         "packagesPath": "C:\\Users\\Higor\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Higor\\Desktop\\ProjectCarniato\\obj\\",
+        "outputPath": "C:\\Projetos\\ProjectCarniatoConquer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
